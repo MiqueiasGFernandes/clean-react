@@ -24,6 +24,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'no-shadow': 'off',
     'import/no-unresolved': 'off',
     'import/extensions':[
       'error',
