@@ -26,6 +26,7 @@ module.exports = {
   rules: {
     'no-shadow': 'off',
     'import/no-unresolved': 'off',
+    'import/prefer-default-export': 'off',
     'import/extensions':[
       'error',
       'ignorePackages',
