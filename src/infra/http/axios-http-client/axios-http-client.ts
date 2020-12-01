@@ -1,9 +1,13 @@
-import { HttpPostParams } from '@/data/protocols/http';
+import { HttpPostClient, HttpPostParams, HttpResponse } from '@/data/protocols/http';
 import axios from 'axios';
 
-export class AxiosHttpClient {
+export class AxiosHttpClient implements HttpPostClient<unknown, unknown> {
   // eslint-disable-next-line
-  async post(params: HttpPostParams<unknown>): Promise<void>{
-    await axios.post(params.url, params.body);
+  async post(params: HttpPostParams<unknown>): Promise<HttpResponse<unknown>> {
+    const httpResponse = await axios.post(params.url, params.body);
+    return {
+      statusCode: httpResponse.status,
+      body: httpResponse.data,
+    };
   }
 }
