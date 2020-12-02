@@ -9,7 +9,8 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
     'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended'
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -24,10 +25,12 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'react/jsx-uses-react': 'error',
+    'react/jsx-uses-vars': 'error',
     'no-shadow': 'off',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
-    'import/extensions':[
+    'import/extensions': [
       'error',
       'ignorePackages',
       {
@@ -39,15 +42,16 @@ module.exports = {
     ],
   },
   settings: {
+    'react': {
+      'version': 'detect',
+    },
     'import/resolver': {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
   },
-  overrides: [
-    {
-      files: ['src/**']
-    }
-  ]
+  overrides: [{
+    files: ['src/**']
+  }]
 };
