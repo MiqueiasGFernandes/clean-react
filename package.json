@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "webpack serve",
     "test": "jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "npm test --watch",
     "test:staged": "npm test --findRelatedTest",
@@ -29,6 +29,7 @@
     "@typescript-eslint/parser": "^4.8.2",
     "@webpack-cli/init": "^1.0.3",
     "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.0.1",
     "eslint": "^7.14.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
