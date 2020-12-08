@@ -9,8 +9,8 @@ module.exports = {
 	transform: {
 		'.+\\.{ts|tsx}$': 'ts-jest'
 	},
-	preset: 'jest-puppeteer',
-  transform: {"\\.ts$": ['ts-jest']},
+	preset: 'ts-jest/presets/js-with-babel',
+	transform: {"\\.ts$": ['ts-jest']},
 	moduleNameMapper: {
 		'@/(.*)': '<rootDir>/src/$1',
 		'\\.scss$': 'identity-obj-proxy'
