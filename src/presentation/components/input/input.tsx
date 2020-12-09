@@ -9,16 +9,29 @@ type Props = React.DetailedHTMLProps<
 
 const Input: React.FC<Props> = (props: Props) => {
   const { name, type, placeholder } = props;
-  const { errorState } = useContext(Context);
-  const error = errorState[name];
+  const { state, setState } = useContext(Context);
+  const error = state[`${name}Error`];
 
   const getStatus = (): string => '🔴';
 
   const getTitle = (): string => error;
 
+  const handleChange = (event: React.FocusEvent<HTMLInputElement>): void {
+    setState({
+      ...state,
+      [event.target.name]: event.target.value
+    })
+  }
+
   return (
     <div className={Styles.inputWrap}>
-      <input type={type} name={name} placeholder={placeholder} />
+      <input
+        data-testid={name}
+        onChange={handleChange}
+        type={type}
+        name={name}
+        placeholder={placeholder}
+      />
       <span
         data-testid={`${name}-status`}
         title={getTitle()}
