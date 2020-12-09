@@ -16,12 +16,12 @@ const Input: React.FC<Props> = (props: Props) => {
 
   const getTitle = (): string => error;
 
-  const handleChange = (event: React.FocusEvent<HTMLInputElement>): void {
+  const handleChange = (event: React.FocusEvent<HTMLInputElement>): void => {
     setState({
       ...state,
-      [event.target.name]: event.target.value
-    })
-  }
+      [event.target.name]: event.target.value,
+    });
+  };
 
   return (
     <div className={Styles.inputWrap}>
