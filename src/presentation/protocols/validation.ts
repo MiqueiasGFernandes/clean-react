@@ -1,3 +1,3 @@
 export default interface Validation {
-  validate(input: Record<string, unknown>): string
-}
+  validate(fiedlName: string, fieldValue: string): string
+};
