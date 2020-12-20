@@ -10,6 +10,6 @@ export default class RequiredFieldValidation implements FieldValidation {
 
   // eslint-disable-next-line
   public validate(value: string): Error {
-    return new RequiredFieldError();
+    return value ? null : new RequiredFieldError();
   }
 }
