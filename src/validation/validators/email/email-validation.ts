@@ -4,14 +4,13 @@ import FieldValidation from '@/validation/protocols/field-validation';
 export default class EmailValidation implements FieldValidation {
   public readonly field: string;
 
-  private invalidFieldError: InvalidFieldError;
+  private emailRegexFormatt = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   constructor(field: string) {
     this.field = field;
   }
 
   validate(value: string): Error {
-    this.invalidFieldError = new InvalidFieldError();
-    return this.invalidFieldError;
+    return this.emailRegexFormatt.test(value) ? null : new InvalidFieldError();
   }
 }
