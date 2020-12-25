@@ -11,6 +11,6 @@ export default class EmailValidation implements FieldValidation {
   }
 
   validate(value: string): Error {
-    return this.emailRegexFormatt.test(value) ? null : new InvalidFieldError();
+    return (!value || this.emailRegexFormatt.test(value)) ? null : new InvalidFieldError();
   }
 }
