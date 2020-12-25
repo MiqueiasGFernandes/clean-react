@@ -6,15 +6,15 @@ export default class MinLengthValidation implements FieldValidation {
 
   private minLength;
 
-  private fieldValue;
+  private value;
 
   constructor(field: string, minLength: number) {
     this.field = field;
     this.minLength = minLength;
   }
 
-  validate(fieldValue: string): Error {
-    this.fieldValue = fieldValue;
+  validate(value: string): Error {
+    this.value = value;
     return new InvalidFieldError();
   }
 }
