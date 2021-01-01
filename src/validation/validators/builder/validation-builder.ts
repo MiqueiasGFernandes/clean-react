@@ -1,4 +1,5 @@
 import FieldValidation from '@/validation/protocols/field-validation';
+import { EmailValidation } from '..';
 import RequiredFieldValidation from '../required-field/required-field-validation';
 
 /* eslint-disable no-useless-constructor */
@@ -18,6 +19,11 @@ export default class ValidationBuilder {
 
   required(): ValidationBuilder {
     this.validations.push(new RequiredFieldValidation(this.fieldName));
+    return this;
+  }
+
+  email(): ValidationBuilder {
+    this.validations.push(new EmailValidation(this.fieldName));
     return this;
   }
 
