@@ -33,6 +33,7 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
       passwordError: validation.validate('password', state.password),
     });
     validation.validate('email', state.email);
+    validation.validate('password', state.password);
   }, [state.email, state.password]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
