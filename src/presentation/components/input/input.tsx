@@ -26,6 +26,7 @@ const Input: React.FC<Props> = (props: Props) => {
   return (
     <div className={Styles.inputWrap}>
       <input
+        readOnly
         data-testid={name}
         onChange={handleChange}
         type={type}
