@@ -1,15 +1,24 @@
 import { HttpPostClient, HttpPostParams, HttpResponse } from '@/data/protocols/http';
 import { AccountModel } from '@/domain/models';
 import { AuthenticationParams } from '@/domain/usecases';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 export class AxiosHttpClient implements HttpPostClient<AuthenticationParams, AccountModel> {
-  // eslint-disable-next-line
+  private httpResponse: AxiosResponse;
+
   async post(params: HttpPostParams<AuthenticationParams>): Promise<HttpResponse<AccountModel>> {
-    const httpResponse = await axios.post(params.url, params.body);
-    return {
-      statusCode: httpResponse.status,
-      body: httpResponse.data,
-    };
+    try {
+      this.httpResponse = await axios.post(params.url, params.body);
+      return {
+        statusCode: this.httpResponse.status,
+        body: this.httpResponse.data,
+      };
+    } catch (error) {
+      this.httpResponse = error.responde;
+      return {
+        statusCode: this.httpResponse.status,
+        body: this.httpResponse.data,
+      };
+    }
   }
 }
