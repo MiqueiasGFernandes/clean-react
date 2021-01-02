@@ -6,9 +6,9 @@
   "scripts": {
     "start": "webpack serve",
     "test": "jest --passWithNoTests --no-cache --runInBand",
-    "test:watch": "npm test --watch",
-    "test:staged": "npm test --findRelatedTest",
-    "test:ci": "npm test --coverage"
+    "test:watch": "jest --passWithNoTests --no-cache --runInBand --watch",
+    "test:staged": "jest --passWithNoTests --no-cache --runInBand --findRelatedTest",
+    "test:ci": "jest --passWithNoTests --no-cache --runInBand --coverage"
   },
   "repository": {
     "type": "git",
