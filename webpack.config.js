@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const {
   CleanWebpackPlugin,
@@ -51,5 +52,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new Dotenv(),
   ],
 };
