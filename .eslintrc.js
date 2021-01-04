@@ -34,6 +34,8 @@ module.exports = {
     'no-shadow': 'off',
     'import/no-unresolved': 'off',
     "no-use-before-define": "off",
+    "@typescript-eslint/no-extra-semi": "off",
+    "semi": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     'import/prefer-default-export': 'off',
     'import/extensions': [
