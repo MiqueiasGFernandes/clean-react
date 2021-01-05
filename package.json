@@ -9,10 +9,11 @@
     "test:watch": "jest --passWithNoTests --no-cache --runInBand --watch",
     "test:staged": "jest --passWithNoTests --no-cache --runInBand --findRelatedTest",
     "test:ci": "jest --passWithNoTests --no-cache --runInBand --coverage",
+    "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info",
     "check": "npm-check"
   },
   "husky": {
-    "hooks":{
+    "hooks": {
       "preCommit": "eslint 'src/**' --fix npm run test:staged"
     }
   },
@@ -70,6 +71,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "axios": "^0.21.1",
+    "coveralls": "^3.1.0",
     "dotenv-webpack": "^6.0.0",
     "faker": "^5.1.0",
     "history": "^4.10.1",
