@@ -7,14 +7,14 @@
     "start": "webpack serve",
     "test": "jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "jest --passWithNoTests --no-cache --runInBand --watch",
-    "test:staged": "jest --passWithNoTests --no-cache --runInBand --findRelatedTest",
+    "test:staged": "jest --passWithNoTests --no-cache --runInBand",
     "test:ci": "jest --passWithNoTests --no-cache --runInBand --coverage",
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info",
     "check": "npm-check"
   },
   "husky": {
     "hooks": {
-      "preCommit": "eslint 'src/**' --fix npm run test:staged"
+      "pre-commit": "eslint 'src/**' --fix && npm run test:staged"
     }
   },
   "repository": {
