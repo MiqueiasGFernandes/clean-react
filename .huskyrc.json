@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "pre-commit": 
-      "eslint 'src/**' --fix && npm run test:staged"
+    "pre-commit": "eslint --fix 'src/**' --fix && npm run test:staged",
+    "pre-push": "eslint 'src/**' && npm run test:ci"
   }
 }
