@@ -12,11 +12,6 @@
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info",
     "check": "npm-check"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "eslint 'src/**' --fix && npm run test:staged"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MiqueiasGFernandes/clean-react.git"
