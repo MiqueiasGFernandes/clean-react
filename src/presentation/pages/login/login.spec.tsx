@@ -176,9 +176,9 @@ describe('Login Component', () => {
     expect(authenticationSpy.callsCount).toBe(0);
   });
   test('Should present error if Authentication fails', async () => {
-    const { sut, authenticationSpy } = makeSut();
+    const { sut, saveAccessTokenMock } = makeSut();
     const error = new InvalidCredentialsError();
-    jest.spyOn(authenticationSpy, 'auth').mockReturnValueOnce(Promise.reject(error));
+    jest.spyOn(saveAccessTokenMock, 'save').mockReturnValueOnce(Promise.reject(error));
     await simulteValidSubmit(sut);
     testElementText(sut, 'main-error', error.message);
     testErrorWrapChildCount(sut, 1);
