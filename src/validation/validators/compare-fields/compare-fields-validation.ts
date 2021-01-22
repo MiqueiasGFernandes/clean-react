@@ -11,8 +11,7 @@ export class CompareFieldsValidation implements FieldValidation {
     this.valueToCompare = valueToCompare;
   }
 
-  // eslint-disable-next-line
   validate(value: string): Error {
-    return new InvalidFieldError();
+    return value !== this.valueToCompare ? new InvalidFieldError() : null;
   }
 }
