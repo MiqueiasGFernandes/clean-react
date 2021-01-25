@@ -17,7 +17,7 @@ describe('Input Component', () => {
     const input = sut.getByTestId(field) as HTMLInputElement;
     expect(input.readOnly).toBe(true);
   });
-  test('Should begin with readOnly', () => {
+  test('Should begin with readOnly = false on focus inside input', () => {
     const field = faker.database.column();
     const sut = makeSut(field);
     const input = sut.getByTestId(field) as HTMLInputElement;
