@@ -19,6 +19,9 @@ const Input: React.FC<Props> = (props: Props) => {
 
   const getTitle = (): string => error || 'Tudo certo!';
 
+  const title = getTitle();
+  const status = getStatus();
+
   const handleChange = (event: Event): void => {
     setState({
       ...state,
@@ -43,10 +46,10 @@ const Input: React.FC<Props> = (props: Props) => {
       />
       <span
         data-testid={`${name}-status`}
-        title={getTitle()}
+        title={title}
         className={Styles.status}
       >
-        {getStatus()}
+        {status}
       </span>
     </div>
   );
