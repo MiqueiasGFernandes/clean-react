@@ -1,16 +1,15 @@
-import React from 'react';
-import faker from 'faker';
-import { Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
+import { InvalidCredentialsError } from '@/domain/error';
+import { AuthenticationSpy, Helper, ValidationStub } from '@/presentation/test';
+import SaveAccessTokenMock from '@/presentation/test/mock-save-access-token';
 import {
   cleanup, fireEvent, render,
   RenderResult,
   waitFor,
 } from '@testing-library/react';
-import { ValidationStub, AuthenticationSpy, Helper } from '@/presentation/test';
-import { InvalidCredentialsError } from '@/domain/error';
-import SaveAccessTokenMock from '@/presentation/test/mock-save-access-token';
-import { testChildCount } from '@/presentation/test/form-helper';
+import faker from 'faker';
+import { createMemoryHistory } from 'history';
+import React from 'react';
+import { Router } from 'react-router-dom';
 import Login from './login';
 
 type SutTypes = {
