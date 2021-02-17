@@ -122,7 +122,7 @@ describe('SignUp Component', () => {
     await simulteValidSubmit(sut);
     Helper.testElementExists(sut, 'submit');
   });
-  test('Should call AddAccount  with correct values', async () => {
+  test('Should call AddAccount with correct values', async () => {
     const { sut, addAccountSpy } = makeSut();
     const name = faker.internet.email();
     const email = faker.internet.email();
@@ -134,5 +134,11 @@ describe('SignUp Component', () => {
       password,
       passwordConfirmation: password,
     });
+  });
+  test('Should call AddAccount only once', async () => {
+    const { sut, addAccountSpy } = makeSut();
+    await simulteValidSubmit(sut);
+    await simulteValidSubmit(sut);
+    expect(addAccountSpy.callsCount).toBe(1);
   });
 });
