@@ -48,14 +48,6 @@ const simulteValidSubmit = async (
   await waitFor(() => form);
 };
 
-const testElementExists = (
-  sut: RenderResult,
-  fieldName: string,
-): void => {
-  const el = sut.getByTestId(fieldName);
-  expect(el).toBeTruthy();
-};
-
 describe('SignUp Component', () => {
   afterEach(cleanup)
   test('Should start with initial state', () => {
@@ -124,6 +116,6 @@ describe('SignUp Component', () => {
   test('Should show spinner on submit', async () => {
     const { sut } = makeSut();
     await simulteValidSubmit(sut);
-    testElementExists(sut, 'submit');
+    Helper.testElementExists(sut, 'submit');
   });
 });

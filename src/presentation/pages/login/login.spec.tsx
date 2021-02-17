@@ -43,14 +43,6 @@ const makeSut = (params?: SutParams): SutTypes => {
   };
 };
 
-const testElementExists = (
-  sut: RenderResult,
-  fieldName: string,
-): void => {
-  const el = sut.getByTestId(fieldName);
-  expect(el).toBeTruthy();
-};
-
 const testElementText = (
   sut: RenderResult,
   fieldName: string,
@@ -113,7 +105,7 @@ describe('Login Component', () => {
   test('Should show spinner on submit', async () => {
     const { sut } = makeSut();
     await simulteValidSubmit(sut);
-    testElementExists(sut, 'spinner');
+    Helper.testElementExists(sut, 'spinner');
   });
   test('Should call Authentication with correct values', async () => {
     const { sut, authenticationSpy } = makeSut();
