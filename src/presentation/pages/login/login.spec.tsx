@@ -123,7 +123,7 @@ describe('Login Component', () => {
     await simulteValidSubmit(sut);
     expect(authenticationSpy.callsCount).toBe(1);
   });
-  test('Should call Authentication if form is invalid', async () => {
+  test('Should not call Authentication if form is invalid', async () => {
     const validationError = faker.random.words();
     const { sut, authenticationSpy } = makeSut({ validationError });
     Helper.populateField(sut, 'email');
