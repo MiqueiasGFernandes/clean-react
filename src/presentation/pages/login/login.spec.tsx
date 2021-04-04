@@ -1,5 +1,6 @@
 import { InvalidCredentialsError } from '@/domain/error';
 import { AuthenticationSpy, Helper, ValidationStub } from '@/presentation/test';
+import { testElementText } from '@/presentation/test/form-helper';
 import SaveAccessTokenMock from '@/presentation/test/mock-save-access-token';
 import {
   cleanup, fireEvent, render,
@@ -21,6 +22,7 @@ type SutTypes = {
 type SutParams = {
   validationError: string;
 };
+
 const history = createMemoryHistory({ initialEntries: ['/login'] });
 const makeSut = (params?: SutParams): SutTypes => {
   const validationStub = new ValidationStub();
@@ -41,15 +43,6 @@ const makeSut = (params?: SutParams): SutTypes => {
     authenticationSpy,
     saveAccessTokenMock,
   };
-};
-
-const testElementText = (
-  sut: RenderResult,
-  fieldName: string,
-  text: string,
-): void => {
-  const el = sut.getByTestId(fieldName);
-  expect(el.textContent).toBe(text);
 };
 
 const simulteValidSubmit = async (

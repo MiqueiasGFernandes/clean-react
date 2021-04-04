@@ -5,6 +5,7 @@ import React from 'react';
 import faker from 'faker';
 import { AddAccountSpy, Helper, ValidationStub } from '@/presentation/test'
 import { EmailInUseError } from '@/domain/error';
+import { populateField, testElementText } from '@/presentation/test/form-helper';
 import SignUp from './signUp';
 
 type SutTypes = {
@@ -14,11 +15,6 @@ type SutTypes = {
 
 type SutParams = {
   validationError: string
-}
-
-const populateField = (sut: RenderResult, fieldName: string, value = faker.random.word()) => {
-  const input = sut.getByTestId('email');
-  fireEvent.input(input, { target: { value } })
 }
 
 const makeSut = (params?: SutParams): SutTypes => {
@@ -35,15 +31,6 @@ const makeSut = (params?: SutParams): SutTypes => {
     sut,
     addAccountSpy,
   };
-};
-
-const testElementText = (
-  sut: RenderResult,
-  fieldName: string,
-  text: string,
-): void => {
-  const el = sut.getByTestId(fieldName);
-  expect(el.textContent).toBe(text);
 };
 
 const simulteValidSubmit = async (
